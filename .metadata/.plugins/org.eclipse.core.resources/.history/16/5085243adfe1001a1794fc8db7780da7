@@ -1,0 +1,26 @@
+package com.component;
+
+import com.frame.Dao;
+import com.vo.User;
+
+public class UserDao implements Dao<String, User> {
+
+	@Override
+	public void insert(User v) {
+		System.out.println("UserDao Insert");
+		
+	}
+
+	@Override
+	public void delete(String k) {
+		System.out.println("UserDao delete");
+		
+	}
+
+	@Override
+	public void update(User v) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

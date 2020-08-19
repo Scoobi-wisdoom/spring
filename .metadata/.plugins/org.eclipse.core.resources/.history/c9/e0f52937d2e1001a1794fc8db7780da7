@@ -1,0 +1,22 @@
+package com.component;
+
+import com.frame.Biz;
+
+public class UserBiz implements Biz {
+
+	@Override
+	public void register() {
+
+	}
+
+	@Override
+	public void remove() {
+
+	}
+
+	@Override
+	public void modify() {
+
+	}
+
+}

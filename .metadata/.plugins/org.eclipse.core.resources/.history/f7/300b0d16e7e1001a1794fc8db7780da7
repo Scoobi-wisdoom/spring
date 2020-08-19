@@ -1,0 +1,41 @@
+package com.component;
+
+import java.util.ArrayList;
+
+import com.frame.Dao;
+import com.vo.Item;
+
+public class ItemDao implements Dao<String, Item> {
+
+	@Override
+	public void insert(Item v) {
+		System.out.println("ItemDao Insert"+v);
+		
+	}
+
+	@Override
+	public void delete(String k) {
+		System.out.println("ItemDao delete"+k);
+		
+	}
+
+	@Override
+	public void update(Item v) {
+		System.out.println("ItemDao update"+v);
+		
+	}
+
+	@Override
+	public Item select(String k) {
+		System.out.println("ItemDao select");
+		Item item = new Item(k, "pants", 10000);
+		return item;
+	}
+
+	@Override
+	public ArrayList<Item> get() {
+		System.out.println("ItemDao All select");
+		return null;
+	}
+
+}

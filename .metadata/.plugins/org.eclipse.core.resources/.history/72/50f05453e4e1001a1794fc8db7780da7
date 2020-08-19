@@ -1,0 +1,42 @@
+package com.component;
+
+import org.springframework.stereotype.Component;
+
+import com.frame.Service;
+
+@Component("uservice")
+public class UserService<User> implements Service<String, User> {
+
+	@Override
+	public void register(User v) {
+		System.out.println("User register");
+		
+	}
+
+	@Override
+	public void remove(String k) {
+		System.out.println("User removed");
+		
+	}
+
+	@Override
+	public void modify(User v) {
+		System.out.println("User modified");
+		
+	}
+
+	@Override
+	public void get(String k) {
+		System.out.println("User get");
+		
+	}
+
+	@Override
+	public void get() {
+		System.out.println("All User get");
+		
+	}
+	
+
+
+}

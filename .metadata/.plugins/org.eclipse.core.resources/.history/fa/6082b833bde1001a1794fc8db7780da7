@@ -1,0 +1,14 @@
+package com.app;
+
+import com.biz.Biz;
+
+public class App {
+
+	public static void main(String[] args) {
+		Biz biz = null;
+		biz.register();
+		biz.modify();
+
+	}
+
+}

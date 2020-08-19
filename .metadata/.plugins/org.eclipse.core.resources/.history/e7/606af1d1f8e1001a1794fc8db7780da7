@@ -1,0 +1,48 @@
+package com.component;
+
+import java.util.ArrayList;
+
+import com.frame.Dao;
+import com.frame.Service;
+import com.vo.User;
+
+public class UserService implements Service<String, User> {
+	
+	Dao dao;
+	public void setDao(Dao dao) {
+		this.dao = dao;
+	}
+	
+	@Override
+	public void register(User v) {
+		System.out.println("User register");
+		
+	}
+
+	@Override
+	public void remove(String k) {
+		System.out.println("User removed");
+		
+	}
+
+	@Override
+	public void modify(User v) {
+		System.out.println("User modified");
+		
+	}
+
+	@Override
+	public User get(String k) {
+		return (User) dao.select(k);
+		
+	}
+
+	@Override
+	public ArrayList<User> get() {
+		return dao.select();
+		
+	}
+	
+
+
+}

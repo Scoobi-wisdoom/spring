@@ -1,0 +1,39 @@
+package com.component;
+
+import java.util.ArrayList;
+
+import com.frame.Dao;
+import com.vo.User;
+
+public class UserDao implements Dao<String, User> {
+
+	@Override
+	public void insert(User v) {
+		System.out.println("Inserted:"+v);		
+	}
+
+	@Override
+	public void delete(String k) {
+		System.out.println("UserDao delete");
+		
+	}
+
+	@Override
+	public void update(User v) {
+		System.out.println("UserDao update");
+		
+	}
+
+	@Override
+	public User select(String k) {
+		System.out.println("UserDao select");
+		return null;
+	}
+
+	@Override
+	public ArrayList<User> get() {
+		System.out.println("UserDao All select");
+		return null;
+	}
+
+}
