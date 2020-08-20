@@ -8,31 +8,31 @@ import com.vo.Item;
 public class ItemDao implements Dao<String, Item> {
 
 	@Override
-	public void insert(Item v) {
+	public void insert(Item v) throws Exception{
 		System.out.println("ItemDao Insert"+v);
 		
 	}
 
 	@Override
-	public void delete(String k) {
+	public void delete(String k) throws Exception{
 		System.out.println("ItemDao delete"+k);
 		
 	}
 
 	@Override
-	public void update(Item v) {
+	public void update(Item v) throws Exception{
 		System.out.println("ItemDao update"+v);
 		
 	}
 
 	@Override
-	public Item select(String k) {
+	public Item select(String k) throws Exception{
 		Item item = new Item(k, "pants", 10000);
 		return item;
 	}
 
 	@Override
-	public ArrayList<Item> select() {
+	public ArrayList<Item> select() throws Exception{
 		ArrayList<Item> list = new ArrayList<Item>();
 		list.add(new Item("it01","pants",10000));
 		list.add(new Item("it02","pants",20000));

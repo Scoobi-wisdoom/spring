@@ -1,0 +1,14 @@
+package com.log;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+
+public class TxAdvice {
+	public void startTx() {
+		System.out.println("Start Transaction ...");
+	}
+	public Object aroundTx(ProceedingJoinPoint pjp) {
+		System.out.println("aroundRx start ...");
+		
+		System.out.println("aroundRx end ...");
+	}
+}

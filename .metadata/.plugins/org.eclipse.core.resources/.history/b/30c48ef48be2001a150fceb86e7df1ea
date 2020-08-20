@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		">
+ 	
+ 	
+ 	<bean id="log" class="com.log.LogAdvice"/>
+ 	<bean id="tx" class="com.log.TxAdvice"/>
+ 	
+	<bean id="uservice" class="com.component.UserService">
+		<property name="dao" ref="udao"></property>
+	</bean>
+	<bean id="udao" class="com.component.UserDao"/>
+	<bean id="iservice" class="com.component.ItemService">
+		<property name="dao" ref="idao"></property>
+	</bean>
+	<bean id="idao" class="com.component.ItemDao"/>
+	<aop:config>
+		<aop:pointcut id="mypoint" expression="execution(* com.component.*Service.*(..))"/>
+		<aop:pointcut id="mypoint2" expression="execution(* com.component.*Dao.*(..))"/>
+		<aop:aspect ref="log">
+			<aop:before pointcut-ref="mypoint" method="printLog"/>
+			<aop:after-throwing pointcut-ref="mypoint2" method="printLog2"/>
+			<!-- <aop:after-throwing pointcut-ref="mypoint2" method="printLog2"/> -->
+			<!-- <aop:after pointcut-ref="mypoint2" method="printLog2"/> -->
+			<!-- <aop:around pointcut-ref="mypoint" method="aroundTx"/>  -->
+		</aop:aspect>
+		<aop:aspect ref="tx">
+			<aop:before pointcut-ref="mypoint" method="startTx"/>
+		</aop:aspect>
+	</aop:config>
+</beans>

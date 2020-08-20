@@ -8,33 +8,36 @@ import com.vo.User;
 
 public class UserService implements Service<String, User> {
 	Dao dao;
-	public void setDao(Dao dao) {
+	public void setDao(Dao dao) throws Exception{
 		this.dao = dao;
 	}
 	
 	@Override
-	public void register(User v) {
+	public void register(User v) throws Exception{
 		dao.insert(v);
 	}
 
 	@Override
-	public void remove(String k) {
+	public void remove(String k) throws Exception{
 		dao.delete(k);
 	}
 
 	@Override
-	public void modify(User v) {
+	public void modify(User v) throws Exception{
 		dao.update(v);
 	}
 
 	@Override
-	public User get(String k) {
-		return (User) dao.select(k);
+	public User get(String k) throws Exception{
+		User user = null;
+		Thread.sleep(5000);
+		user = (User) dao.select(k);
+		return user;
 		
 	}
 
 	@Override
-	public ArrayList<User> get() {
+	public ArrayList<User> get() throws Exception{
 		return dao.select();
 		
 	}
