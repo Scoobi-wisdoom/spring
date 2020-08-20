@@ -3,7 +3,6 @@ package com.component;
 import java.util.ArrayList;
 
 import com.frame.Dao;
-import com.frame.Search;
 import com.vo.Item;
 
 public class ItemDao implements Dao<String, Item> {
@@ -33,7 +32,7 @@ public class ItemDao implements Dao<String, Item> {
 	}
 
 	@Override
-	public ArrayList<Item> get() {
+	public ArrayList<Item> select() {
 		ArrayList<Item> list = new ArrayList<Item>();
 		list.add(new Item("it01","pants",10000));
 		list.add(new Item("it02","pants",20000));

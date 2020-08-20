@@ -7,7 +7,6 @@ import com.frame.Service;
 import com.vo.User;
 
 public class UserService implements Service<String, User> {
-	
 	Dao dao;
 	public void setDao(Dao dao) {
 		this.dao = dao;

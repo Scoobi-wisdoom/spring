@@ -7,7 +7,9 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 
 import com.frame.Dao;
 import com.frame.Service;
+import com.vo.Item;
 import com.vo.User;
+
 
 public class App {
 
@@ -24,7 +26,7 @@ public class App {
 		biz.modify(user);
 		User dbuser = biz.get("id01");
 		System.out.println(dbuser);
-//		biz.get();
+		biz.get();
 
 		// UserDao
 		Dao<String, User> biz2 = (Dao) factory.getBean("udao");
@@ -33,27 +35,33 @@ public class App {
 		biz2.update(user);
 		User userdao = biz2.select("id01");
 		System.out.println(userdao);
-		ArrayList<User> list = biz2.select();
-		for(User u:list) {
+		ArrayList<User> udaolist = biz2.select();
+		for(User u:udaolist) {
 			System.out.println(u);
 		}
 
 		System.out.println("----------------------------------");
 
-//		// ItemService
-//		Item item = new Item("it01","pants",10000);
-//		Service<String, Item> biz3 = (Service<String, Item>) factory.getBean("iservice");
-//		biz3.register(item);
-//		biz3.remove("it01");
-//		biz3.modify(item);
-//		biz3.get("it01");
-//		biz3.get();
-//
-//		// ItemDao
-//		Dao<String, Item> biz4 = (Dao<String, Item>) factory.getBean("idao");
-//		biz4.insert(item);
-//		biz4.delete("");
-//		biz4.update(item);
+		// ItemService
+		Item item = new Item("it01","pants",10000);
+		Service<String, Item> biz3 = (Service) factory.getBean("iservice");
+		biz3.register(item);
+		biz3.remove("it01");
+		biz3.modify(item);
+		biz3.get("it01");
+		biz3.get();
+
+		// ItemDao
+		Dao<String, Item> biz4 = (Dao) factory.getBean("idao");
+		biz4.insert(item);
+		biz4.delete("id01");
+		biz4.update(item);
+		Item itemdao = biz4.select("id01");
+		System.out.println(itemdao);
+		ArrayList<Item> idaolist = biz4.select();
+		for(Item i:idaolist) {
+			System.out.println(i);
+		}
 
 		factory.close();
 		System.out.println("Spring End....");

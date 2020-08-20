@@ -1,7 +1,0 @@
-package com.component;
-
-import com.frame.Dao;
-
-public class UserDao implements Dao<K, V> {
-
-}

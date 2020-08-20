@@ -1,7 +1,0 @@
-package com.frame;
-
-public interface Service<V, K> {
-	public void register();
-	public void remove();
-	public void modify();
-}

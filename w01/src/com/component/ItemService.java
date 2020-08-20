@@ -3,15 +3,12 @@ package com.component;
 import java.util.ArrayList;
 
 import com.frame.Dao;
-import com.frame.Search;
 import com.frame.Service;
 import com.vo.Item;
 
 public class ItemService implements Service<String, Item> {
 	
 	Dao dao;
-	
-	Search search;
 	
 	public void setDao(Dao dao) {
 		this.dao = dao;
@@ -41,7 +38,7 @@ public class ItemService implements Service<String, Item> {
 
 	@Override
 	public ArrayList<Item> get() {
-		return dao.get();
+		return dao.select();
 	}
 
 
