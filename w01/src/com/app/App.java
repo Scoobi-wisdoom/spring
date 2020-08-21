@@ -21,13 +21,23 @@ public class App {
 		// UserService
 		User user = new User("id01", "pwd01", "james");
 		Service<String, User> biz = (Service) factory.getBean("uservice");
-//		try {
-//			biz.register(user);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		biz.remove("");
-//		biz.modify(user);
+		try {
+			biz.register(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			biz.remove("");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			biz.modify(user);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		try {
 			User dbuser = biz.get("id01");
 		} catch (Exception e) {

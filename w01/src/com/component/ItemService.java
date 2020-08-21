@@ -6,6 +6,7 @@ import com.frame.Dao;
 import com.frame.Service;
 import com.vo.Item;
 
+@org.springframework.stereotype.Service("iservice")
 public class ItemService implements Service<String, Item> {
 	
 	Dao dao;

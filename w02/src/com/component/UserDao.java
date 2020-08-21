@@ -2,9 +2,12 @@ package com.component;
 
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Repository;
+
 import com.frame.Dao;
 import com.vo.User;
 
+@Repository("udao")
 public class UserDao implements Dao<String, User> {
 
 	@Override

@@ -2,11 +2,16 @@ package com.component;
 
 import java.util.ArrayList;
 
+import javax.annotation.Resource;
+
 import com.frame.Dao;
 import com.frame.Service;
 import com.vo.User;
 
+
+@org.springframework.stereotype.Service("uservice")
 public class UserService implements Service<String, User> {
+	@Resource(name="udao")
 	Dao dao;
 	public void setDao(Dao dao) {
 		this.dao = dao;

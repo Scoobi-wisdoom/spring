@@ -2,12 +2,17 @@ package com.component;
 
 import java.util.ArrayList;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Component;
+
 import com.frame.Dao;
 import com.frame.Service;
 import com.vo.Item;
 
+@Component("iservice")
 public class ItemService implements Service<String, Item> {
-	
+	@Resource(name="idao")
 	Dao dao;
 	
 	public void setDao(Dao dao) {
