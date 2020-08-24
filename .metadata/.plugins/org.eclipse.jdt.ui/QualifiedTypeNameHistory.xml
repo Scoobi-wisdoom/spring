@@ -8,4 +8,7 @@
 <fullyQualifiedTypeName name="com.frame.Search"/>
 <fullyQualifiedTypeName name="com.vo.Item"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="javax.annotation.Resource"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 </qualifiedTypeNameHistroy>
