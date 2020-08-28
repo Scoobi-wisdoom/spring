@@ -28,8 +28,8 @@ public class MemberDAO {
 		}
 	}
 	
-	public List listMembers() {
-		List memberList = new ArrayList();
+	public List<MemberVO> listMembers() {
+		List<MemberVO> memberList = new ArrayList();
 		
 		try {
 			conn = dataFactory.getConnection();
@@ -53,27 +53,27 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 		return memberList;
+	}
 		
-		public void addMember(MemberVO m) {
-			try {
-				conn = dataFactory.getConnection();
-				String id = m.getId();
-				String pwd = m.getPwd();
-				String name = m.getName();
-				String email = m.getEmail();
-				String query = "INSERT INTO T_MEMBER(ID, PWD, NAME, EMAIL)"+"VALUES(?,?,?,?)";
-				System.out.println(query);
-				pstmt = conn.prepareStatement(query);
-				pstmt.setString(1, id);
-				pstmt.setString(2, pwd);
-				pstmt.setString(3, name);
-				pstmt.setString(4, email);
-				pstmt.executeUpdate();
-				pstmt.close();
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+	public void addMember(MemberVO m) {
+		try {
+			conn = dataFactory.getConnection();
+			String id = m.getId();
+			String pwd = m.getPwd();
+			String name = m.getName();
+			String email = m.getEmail();
+			String query = "INSERT INTO T_MEMBER(ID, PWD, NAME, EMAIL)"+"VALUES(?,?,?,?)";
+			System.out.println(query);
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, id);
+			pstmt.setString(2, pwd);
+			pstmt.setString(3, name);
+			pstmt.setString(4, email);
+			pstmt.executeUpdate();
+			pstmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 }
