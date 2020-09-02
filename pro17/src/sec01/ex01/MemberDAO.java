@@ -10,34 +10,33 @@ import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 public class MemberDAO {
 	private DataSource dataFactory;
 	private Connection conn;
 	private PreparedStatement pstmt;
-	
+
 	public MemberDAO() {
 		try {
 			Context ctx = new InitialContext();
 			Context envContext = (Context) ctx.lookup("java:/comp/env");
 			dataFactory = (DataSource) envContext.lookup("jdbc/oracle");
-		} catch (NamingException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public List<MemberVO> listMembers() {
 		List<MemberVO> memberList = new ArrayList();
-		
 		try {
 			conn = dataFactory.getConnection();
-			String query = "SELECT * FROM T_MEMEBR ORDER BY JOINDATE DESC";
+			String query = "SELECT * FROM T_MEMBER ORDER BY JOINDATE DESC";
 			System.out.println(query);
 			pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
-			while(rs.next()) {
+
+			while (rs.next()) {
 				String id = rs.getString("id");
 				String pwd = rs.getString("pwd");
 				String name = rs.getString("name");
@@ -54,7 +53,7 @@ public class MemberDAO {
 		}
 		return memberList;
 	}
-		
+
 	public void addMember(MemberVO m) {
 		try {
 			conn = dataFactory.getConnection();
@@ -62,9 +61,8 @@ public class MemberDAO {
 			String pwd = m.getPwd();
 			String name = m.getName();
 			String email = m.getEmail();
-			String query = "INSERT INTO T_MEMBER(ID, PWD, NAME, EMAIL)"+"VALUES(?,?,?,?)";
+			String query = "INSERT INTO T_MEMBER(ID, PWD, NAME, EMAIL)" + "VALUES(?,?,?,?)";
 			System.out.println(query);
-			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, id);
 			pstmt.setString(2, pwd);
 			pstmt.setString(3, name);
