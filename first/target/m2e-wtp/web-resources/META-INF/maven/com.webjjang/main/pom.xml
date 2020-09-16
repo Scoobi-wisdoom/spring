@@ -163,6 +163,15 @@
 			<scope>system</scope>
 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc6.jar</systemPath>
 		</dependency>
+		
+		<!-- 페이지 처리 객체 관련 -->
+		<dependency>
+			<groupId>net.webjjang</groupId>
+			<artifactId>util.page</artifactId>
+			<version>1.0.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/pageObject.jar</systemPath>
+		</dependency>
 		<!-- HikariCP 라이브러리 -->
 		<dependency>
 			<groupId>com.zaxxer</groupId>

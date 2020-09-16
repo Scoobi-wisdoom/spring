@@ -21,7 +21,9 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.webjjang.main" />
+	
+	<!-- 객체를 자동으로 만들 기본 패키지 지정: 기본 패키지 아래에 특정하게 정의해놓은 클래스를 자동으로 생성한다. -->
+	<context:component-scan base-package="com.webjjang" />
 	
 	
 	
