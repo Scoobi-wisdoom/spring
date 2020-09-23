@@ -8,7 +8,7 @@
 
 <mapper namespace="com.webjjang.forum.mapper.ForumMapper">
  <!-- 게시판 리스트 : select -->
- 	<select id="list">
+ 	<select id="list" resultType="com.webjjang.forum.vo.ForumVO">
  	select * from (
 	 	select rownum rnum, no, title, writer, writeDate, hit
 	 	from(
