@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ tablib prefix="pageNav" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="pageObject" tagdir="/WEB-INF/tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -58,7 +58,7 @@
  <c:if test = "${pageObject.totalRow > pageObject.perPageNum }">
  <tr>
  	<td>
- 		<pageNav:pageNav endPage=${pageOBject.endPage }"
+ 		<pageNav:pageNav endPage="${pageOBject.endPage }"
  		totalPage="${pageObject.totalPage }"
  		startddPage="${pageObject.startPage }"/>
  	</td>
