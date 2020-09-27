@@ -27,4 +27,12 @@ public class ForumController {
 		// /WEB-INF/views/ + forum/list + .jsp
 		return "forum/list";
 	}
+	
+	// 게시판 글 보기
+	@GetMapping("/view.do")
+	public String view(int no, Model model) {
+		model.addAttribute("vo", service.view(no));
+		// /WEB-INF/views/ + forum/view + .jsp
+		return "forum/view";
+	}
 }
