@@ -15,4 +15,9 @@
 	<select id="getCount" resultType="java.lang.Integer">
 		select count(*) from forum
 	</select>
+	
+	<insert id="write">
+		insert into forum(no, title, content, writer)
+		values(forum_seq.nextval, #{title}, #{content}, #{writer})
+	</insert>
 </mapper>

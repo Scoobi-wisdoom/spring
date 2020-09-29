@@ -15,40 +15,41 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+<script type="text/javascript">
+$(function(){
+	$(".cancelBtn").click(function(){
+		history.back();
+	});
+});
+</script>
+
 </head>
 <body>
 	<div class="container">
-		<h2>게시판 리스트</h2>
+		<h2>게시판 글 쓰기</h2>
+		<form method="post" class="form-group">
 		<table class="table">
 			<tr>
-				<th>번호</th>
 				<th>제목</th>
-				<th>작성자</th>
-				<th>작성일</th>
-				<th>조회수</th>
+				<td><input class="form-control" name="title"/></td>
 			</tr>
-		<c:if test="${empty list }">
 			<tr>
-				<td colspan="5">데이터가 존재하지 않습니다.</td>
+				<th>내용</th>
+				<td><textarea class="form-control" name="content"></textarea></td>
 			</tr>
-		</c:if>
-		<c:if test="${! empty list }">
-			<c:forEach items="${list }" var="vo">
-				<tr class="dataRow">
-					<td class="no">${vo.no }</td>
-					<td class="no">${vo.no }</td>
-					<td class="no">${vo.no }</td>
-					<td class="no">${vo.no }</td>
-					<td class="no">${vo.no }</td>
-				</tr>
-			</c:forEach>
-		</c:if>
+			<tr>
+				<th>작성자</th>
+				<td><input class="form-control" name="writer"/></td>
+			</tr>
 		<tr>
-			<td colspan="5">
-				<a href="write.do" class="btn btn-default">글쓰기</a>
+			<td colspan="2">
+				<button>등록</button>
+				<button type="reset">새로 입력</button>
+				<button type="button" class="cancelBtn">취소</button>
 			</td>
 		</tr>
 		</table>
+		</form>
 	</div>
 </body>
 </html>

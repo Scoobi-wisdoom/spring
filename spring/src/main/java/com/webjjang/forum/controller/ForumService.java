@@ -23,4 +23,8 @@ public class ForumService {
 		return mapper.list(pageObject);
 	}
 
+	public Integer write(ForumVO vo) {
+		return mapper.write(vo);	
+	}
+
 }
