@@ -5,7 +5,6 @@ import java.util.Date;
 import org.apache.ibatis.type.Alias;
 
 // resultType에 쓸 때 편하게 하기 위한 애너테이션
-@Alias("ForumVO")
 public class ForumVO {
 
 	private int no;

@@ -35,6 +35,6 @@ public class ForumController {
 	public String write(ForumVO vo) {
 		System.out.println("ForumController.write()");
 		service.write(vo);
-		return "redirct:list.do";
+		return "redirect:list.do";
 	}
 }

@@ -1,4 +1,4 @@
-package com.webjjang.forum.vo.mapper;
+package com.webjjang.forum.mapper;
 
 import java.util.List;
 

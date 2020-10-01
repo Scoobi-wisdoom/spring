@@ -6,8 +6,8 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.webjjang.forum.mapper.ForumMapper;
 import com.webjjang.forum.vo.ForumVO;
-import com.webjjang.forum.vo.mapper.ForumMapper;
 
 import net.webjjang.util.PageObject;
 

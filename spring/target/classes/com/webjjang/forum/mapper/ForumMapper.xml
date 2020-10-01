@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.webjjang.forum.mapper.ForumMapper">
-	<select id="list" resultType="ForumVO">
+	<select id="list" resultType="com.webjjang.forum.vo.ForumVO">
 		select * from (
 			select rownum rnum, no, title, writer, writeDate, hit from (
 				select no, title, writer, writeDate, hit from forum
