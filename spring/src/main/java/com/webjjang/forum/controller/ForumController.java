@@ -22,6 +22,10 @@ public class ForumController {
 	@GetMapping("/list.do")
 	public String list(Model model, PageObject pageObject) {
 		System.out.println("ForumController.list.pageObject:"+ pageObject);
+		
+		model.addAttribute("list", service.list(pageObject));
+		model.addAttribute("pageObject", pageObject);
+		
 		return MODULE_NAME + "/list";
 	}
 	

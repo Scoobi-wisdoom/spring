@@ -24,6 +24,7 @@ public class ForumService {
 	}
 
 	public Integer write(ForumVO vo) {
+		System.out.println("ForumService.write().vo:" + vo);
 		return mapper.write(vo);	
 	}
 
