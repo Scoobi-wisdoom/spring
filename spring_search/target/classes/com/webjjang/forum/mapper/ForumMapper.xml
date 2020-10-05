@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.webjjang.forum.mapper.ForumMapper">
+	<select id="list" resultType="com.webjjang.forum.vo.ForumVO">
+		select * from (
+			select rownum rnum, no, title, writer, writeDate, hit from (
+				select no, title, writer, writeDate, hit 
+				from forum
+				<!-- 이곳에 조건을 쓴다. -->
+				order by no desc
+			)
+		)
+		where rnum between #{startRow} and #{endRow}
+	</select>
+	<select id="getCount" resultType="java.lang.Integer">
+		select count(*) 
+		from forum
+		<!-- 이곳에 조건을 쓴다. -->
+	</select>
+	
+	<insert id="write">
+		insert into forum(no, title, content, writer)
+		values(forum_seq.nextval, #{title}, #{content}, #{writer})
+	</insert>
+</mapper>
