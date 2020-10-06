@@ -24,6 +24,7 @@ public class ForumController {
 	// 게시글 리스트
 	@GetMapping("/list.do")
 	public String list(Model model, PageObject pageObject) {
+		System.out.println("ForumController.list().pageObjet:" + pageObject);
 		// DB에서 데이터 가져오기 - Controller - Service - Mapper (DAO 자동 생성)
 		model.addAttribute("list", service.list(pageObject));
 		model.addAttribute("pageObject", pageObject);
