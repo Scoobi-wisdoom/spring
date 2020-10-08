@@ -18,9 +18,18 @@ public class ForumService {
 	@Inject
 	private ForumMapper mapper;
 	
+	// 게시판 글 보기
 	public List<ForumVO> list(PageObject pageObject) {
 		// paeObject에 전체 데이터의 개수를 셋팅하는 것이 필요
 		pageObject.setTotalRow(mapper.getCount(pageObject));
 		return mapper.list(pageObject);
 	}
+	
+	public ForumVO view(int no, int inc) {
+		if(inc == 1) {
+			mapper.increase(no);
+		}
+		return mapper.view(no);
+	}
+	
 }

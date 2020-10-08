@@ -40,35 +40,31 @@
 		<table class="table">
 			<tr>
 				<th>번호</th>
+				<td>${vo.no }</td>
+			</tr>
+			<tr>
 				<th>제목</th>
+				<td>${vo.title }</td>
+			</tr>
+			<tr>
+				<th>내용</th>
+				<td><pre style="border: none">${vo.content }</pre></td>
+			</tr>
+			<tr>
 				<th>작성자</th>
+				<td>${vo.writer }</td>
+			</tr>
+			<tr>
 				<th>작성일</th>
+				<td><fmt:formatDate value="${vo.writeDate }" pattern="yyyy.MM.dd"/></td>
+			</tr>
+			<tr>
 				<th>조회수</th>
-			</tr>
-			<c:if test="${empty list }">
-				<tr>
-					<td colspan="5">데이터가 존재하지 않습니다.</td>
-				</tr>
-			</c:if>
-			<c:if test="${! empty list }">
-				<c:forEach items="${list }" var="vo">
-					<tr class="dataRow">
-						<td class="no">${vo.no }</td>
-						<td>${vo.title }</td>
-						<td>${vo.writer }</td>
-						<td><fmt:formatDate value="${vo.writeDate }"
-								pattern="yyyy.MM.dd" /></td>
-						<td>${vo.hit }</td>
-					</tr>
-				</c:forEach>
-			</c:if>
-			<tr>
-				<td colspan="5">
-					<pageObject:pageNav pageObject="${pageObject }" listURI="list.do" />
-				</td>
+				<td>${vo.hit }</td>
 			</tr>
 			<tr>
-				<td colspan="5"><a href="write.do" class="btn btn-default">글쓰기</a>
+				<td colspan="2">
+					<a href="list.do?page=${param.page }&perPageNum=${param.perPageNum }&key=${param.key }&word=${param.word }" class="btn btn-default">리스트</a>			
 				</td>
 			</tr>
 		</table>

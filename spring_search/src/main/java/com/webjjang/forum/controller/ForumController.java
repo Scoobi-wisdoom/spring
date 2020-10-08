@@ -33,7 +33,9 @@ public class ForumController {
 
 	// 게시글 보기
 	@GetMapping("/view.do")
-	public String view(Model model, PageObject pageObject, int no, int inc) {
+	public String view(Model model, int no, int inc) {
+		model.addAttribute("vo", service.view(no, inc));
+//		model.addAttribute("pageObject", pageObject);
 		return MODULE_NAME + "/view";
 	}
 

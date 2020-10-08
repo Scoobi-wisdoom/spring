@@ -11,4 +11,9 @@ public interface ForumMapper {
 	public List<ForumVO> list(PageObject pageObject);
 	
 	public Integer getCount(PageObject pageObject);
+
+	// 게시판 글 보기
+	public ForumVO view(int no);
+
+	public void increase(int no);
 }

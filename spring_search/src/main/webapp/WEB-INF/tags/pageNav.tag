@@ -17,7 +17,8 @@
 
 <ul class="pagination">
 	<li data-page=1><c:if test="${pageObject.page > 1 }">
-			<a href="${listURI }?page=1&perPageNum=10"
+			<a
+				href="${listURI }?page=1&perPageNum=10&key=${pageObject.key }&word=${pageObject.word }"
 				title="click to move first page!" ${tooltip }> <i
 				class="glyphicon glyphicon-fast-backward"></i>
 			</a>
@@ -31,7 +32,8 @@
 
 	<li data-page=${pageObject.startPage -1 }><c:if
 			test="${pageObject.startPage > 1 }">
-			<a href="${listURI }?page=${pageObject.startPage - 1 }&perPageNum=10"
+			<a
+				href="${listURI }?page=${pageObject.startPage - 1 }&perPageNum=10&key=${pageObject.key }&word=${pageObject.word }"
 				title="click to move previous page group!" ${tooltip }> <i
 				class="glyphicon glyphicon-step-backward"></i>
 			</a>
@@ -49,14 +51,15 @@
 				<a href="" onclick="return false" ${noMove } ${tooltip }>${cnt}</a>
 			</c:if> <!-- 페이지와 cnt가 같지 않으면 링크가 있음 --> <c:if
 				test="${pageObject.page != cnt }">
-				<a href="${listURI }?page=${cnt }&perPageNum=10"
+				<a
+					href="${listURI }?page=${cnt }&perPageNum=10&key=${pageObject.key }&word=${pageObject.word }"
 					title="click to move ${cnt } page" ${tooltip }>${cnt}</a>
 			</c:if>
 		</li>
 	</c:forEach>
 	<c:if test="${pageObject.endPage < pageObject.totalPage }">
 		<li data-page=${pageObject.endPage + 1 }><a
-			href="${listURI }?page=${pageObject.endPage + 1 }"
+			href="${listURI }?page=${pageObject.endPage + 1 }&perPageNum=${pageObject.perPageNum }&key=${pageObject.key }&word=${pageObject.word }"
 			title="click to move next page group!" ${tooltip }> <i
 				class="glyphicon glyphicon-step-forward"></i>
 		</a></li>
@@ -70,7 +73,7 @@
 	</c:if>
 	<c:if test="${pageObject.page < pageObject.totalPage }">
 		<li data-page=${pageObject.totalPage }><a
-			href="${listURI }?page=${pageObject.totalPage }"
+			href="${listURI }?page=${pageObject.totalPage }&perPageNum=${pageObject.perPageNum }&key=${pageObject.key }&word=${pageObject.word }"
 			title="click to move last page!" ${tooltip }> <i
 				class="glyphicon glyphicon-fast-forward"></i>
 		</a></li>

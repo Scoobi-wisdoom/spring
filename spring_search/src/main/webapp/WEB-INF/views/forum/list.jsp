@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="pageObject" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="pageNav" tagdir="/WEB-INF/tags"%>
 
 <!DOCTYPE html>
 <html>
@@ -28,7 +28,11 @@
 	$(function() {
 		$(".dataRow").click(function() {
 			var no = $(this).find(".no").text();
-			location = "view.do?no=" + no + "&inc=1";
+			location = "view.do?no=" + no + "&inc=1"
+			+ "&page=${pageObject.page}" 
+			+ "&perPageNum=${pageObject.perPageNum}"
+			+ "&key=${pageObject.key}"
+			+ "&word=${pageObject.word}";
 		});
 	});
 </script>
@@ -49,7 +53,8 @@
 							<option value="tc" ${(pageObject.key == "tc")? " selected ":"" }>제목/내용</option>
 							<option value="tw" ${(pageObject.key == "tw")? " selected ":"" }>제목/작성자</option>
 							<option value="cw" ${(pageObject.key == "cw")? " selected ":"" }>내용/작성자</option>
-							<option value="tcw" ${(pageObject.key == "tcw")? " selected ":"" }>전체</option>
+							<option value="tcw"
+								${(pageObject.key == "tcw")? " selected ":"" }>전체</option>
 						</select> <input type="text" class="form-control" placeholder="검색"
 							name="word" value="${pageObject.word }">
 						<!-- PageObject에 나오는 word -->
@@ -89,8 +94,9 @@
 				</c:forEach>
 			</c:if>
 			<tr>
-				<td colspan="5"><pageObject:pageNav pageObject="${pageObject }"
-						listURI="list.do" /></td>
+				<td colspan="5">
+					<pageNav:pageNav pageObject="${pageObject }" listURI="list.do" />
+				</td>
 			</tr>
 			<tr>
 				<td colspan="5"><a href="write.do" class="btn btn-default">글쓰기</a>
