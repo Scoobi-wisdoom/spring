@@ -32,4 +32,23 @@ public class ForumService {
 		return mapper.view(no);
 	}
 	
+	// 검색 게시판 글 수정
+	public void update(ForumVO vo) throws Exception {
+		if(mapper.update(vo) == 0) {
+			throw new Exception("입력한 정보를 확인해주세요.");
+		}
+	}
+
+	public void write(ForumVO vo) throws Exception {
+		if(mapper.write(vo) == 0) {
+			throw new Exception("입력한 정보를 확인해주세요.");
+		}
+	}
+
+	public void delete(ForumVO vo) throws Exception{
+		if(mapper.delete(vo) == 0) {
+			throw new Exception("입력한 정보를 확인해주세요.");
+		}
+	}
+	
 }

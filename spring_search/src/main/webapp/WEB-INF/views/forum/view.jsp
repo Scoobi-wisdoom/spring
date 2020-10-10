@@ -64,6 +64,8 @@
 			</tr>
 			<tr>
 				<td colspan="2">
+					<a href="update.do?no=${param.no }&inc=0&page=${param.page }&perPageNum=${param.perPageNum }&key=${param.key }&word=${param.word }" class="btn btn-default">수정</a>
+					<a href="delete.do?no=${param.no }&inc=0&page=${param.page }&perPageNum=${param.perPageNum }&key=${param.key }&word=${param.word }" class="btn btn-default">삭제</a>
 					<a href="list.do?page=${param.page }&perPageNum=${param.perPageNum }&key=${param.key }&word=${param.word }" class="btn btn-default">리스트</a>			
 				</td>
 			</tr>

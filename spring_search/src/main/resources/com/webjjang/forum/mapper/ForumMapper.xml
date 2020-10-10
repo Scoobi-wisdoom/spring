@@ -24,8 +24,8 @@
 	</select>
 
 	<insert id="write">
-		insert into forum(no, title, content, writer)
-		values(forum_seq.nextval, #{title}, #{content}, #{writer})
+		insert into forum(no, title, content, writer, pw)
+		values(forum_seq.nextval, #{title}, #{content}, #{writer}, #{pw})
 	</insert>
 
 	<sql id="search">
@@ -84,4 +84,18 @@ set hit = hit + 1
 where no = #{no}
 </update>
 
+<!-- 게시판 글삭제 : delete -->
+ <delete id="delete">
+  delete from board
+  where no = #{no} and pw = #{pw}
+ </delete>
+
+<!-- 게시판 글 수정
+	오류가 나지 않으면서 정보가 수정이 안 되는 경우 - 비밀번호가 틀린 경우,
+ -->
+<update id="update">
+update forum
+set title = #{title}, content = #{content}, writer = #{writer}
+where no = #{no} and pw = #{pw}
+</update>
 </mapper>

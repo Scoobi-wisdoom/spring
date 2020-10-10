@@ -41,6 +41,10 @@ $(function(){
 				<th>작성자</th>
 				<td><input class="form-control" name="writer"/></td>
 			</tr>
+			<tr>
+				<th>비밀번호</th>
+				<td><input class="form-control" name="pw" type="password"/></td>
+			</tr>
 		<tr>
 			<td colspan="2">
 				<button>등록</button>

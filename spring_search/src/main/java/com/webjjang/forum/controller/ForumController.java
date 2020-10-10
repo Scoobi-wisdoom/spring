@@ -1,5 +1,7 @@
 package com.webjjang.forum.controller;
 
+import java.net.URLEncoder;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,7 +49,9 @@ public class ForumController {
 
 	// 글 쓰기 처리 - 제목, 내용, 작성자, 비밀번호
 	@PostMapping("/write.do")
-	public String write(ForumVO vo) {
+	public String write(ForumVO vo) throws Exception{
+		System.out.println("ForumController.write().vo:"+vo);
+		service.write(vo);
 
 		// 화면에 JSP를 보여주지 않고 바로 list로 이동한다.
 		return "redirect:list.do";
@@ -56,21 +60,36 @@ public class ForumController {
 	// 글 수정 폼
 	@GetMapping("/update.do")
 	public String updateForm(Model model, int no, int inc) {
+		model.addAttribute("vo", service.view(no, inc));
 		return MODULE_NAME + "/update";
 	}
 
 	// 글 수정 처리 - 글번호, 제목, 내용, 작성자, 확인용 비밀번호
 	@PostMapping("/update.do")
-	public String update(ForumVO vo) {
-
+	public String update(ForumVO vo, PageObject pageObject) throws Exception{
+		System.out.println("ForumController.update().vo:"+vo);
+		System.out.println("ForumController.update().pageObject:"+pageObject);
+		// DB 처리
+		service.update(vo);
+		
+		// 검색어가 null이면 null이 아닌 ""로 변경
+		if(pageObject.getWord() == null) pageObject.setWord("");
+		
 		// 화면에 JSP를 보여주지 않고 바로 글 보기로 이동한다.
-		return "redirect:view.do?no=" + vo.getNo() + "&inc=0";
+		return "redirect:view.do?no=" + vo.getNo() + "&inc=0" 
+		+ "&page=" + pageObject.getPage()
+		+ "&perPageNum=" + pageObject.getPerPageNum()
+		+ "&key=" + pageObject.getKey()
+		// 검색어 한글 처리
+		+ "&word=" + URLEncoder.encode(pageObject.getWord(), "utf-8");
 	}
 
 	// 글 삭제 처리 - 글 번호, 확인용 비밀번호
 	@PostMapping("/delete.do")
-	public String delete(ForumVO vo) {
-
+	public String delete(ForumVO vo) throws Exception{
+		System.out.println("ForumController.delete().vo:"+vo);
+		
+		service.delete(vo);
 		return "redirect:list.do";
 	}
 }
