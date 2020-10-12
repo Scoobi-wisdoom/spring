@@ -40,17 +40,15 @@
 				</tr>
 				<tr>
 					<th>제목</th>
-					<td><input class="form-control" name="title"
-						value="${vo.title }" /></td>
+					<td><input name="title" value="${vo.title }" class="form-control" /></td>
 				</tr>
 				<tr>
 					<th>내용</th>
-					<td><textarea class="form-control" name="content">${vo.content }</textarea></td>
+					<td><textarea rows="5" class="form-control" name="content">${vo.content }</textarea></td>
 				</tr>
 				<tr>
 					<th>작성자</th>
-					<td><input class="form-control" name="writer"
-						value="${vo.writer }" /></td>
+					<td><input name="writer" value="${vo.writer }" class="form-control" /></td>
 				</tr>
 				<tr>
 					<th>비밀번호</th>

@@ -25,4 +25,5 @@ public interface ForumMapper {
 
 	// 게시판 글 수정
 	public Integer update(ForumVO vo);
+
 }

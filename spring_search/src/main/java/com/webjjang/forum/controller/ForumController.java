@@ -83,6 +83,14 @@ public class ForumController {
 		// 검색어 한글 처리
 		+ "&word=" + URLEncoder.encode(pageObject.getWord(), "utf-8");
 	}
+	
+	// 글 삭제 폼
+	@GetMapping("/delete.do")
+	public String deleteForm(Model model, int no) {
+		model.addAttribute("vo", service.view(no, 0));
+		return MODULE_NAME + "/delete";
+	}
+
 
 	// 글 삭제 처리 - 글 번호, 확인용 비밀번호
 	@PostMapping("/delete.do")
