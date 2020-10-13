@@ -21,7 +21,7 @@ public interface ForumMapper {
 	public Integer write(ForumVO vo);
 	
 	// 게시판 글 삭제
-	public Integer delete(ForumVO vo);
+	public Integer delete(int no);
 
 	// 게시판 글 수정
 	public Integer update(ForumVO vo);

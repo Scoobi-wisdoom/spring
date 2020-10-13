@@ -86,18 +86,9 @@ public class ForumController {
 	
 	// 글 삭제 폼
 	@GetMapping("/delete.do")
-	public String deleteForm(Model model, int no) {
-		model.addAttribute("vo", service.view(no, 0));
-		return MODULE_NAME + "/delete";
-	}
-
-
-	// 글 삭제 처리 - 글 번호, 확인용 비밀번호
-	@PostMapping("/delete.do")
-	public String delete(ForumVO vo) throws Exception{
-		System.out.println("ForumController.delete().vo:"+vo);
-		
-		service.delete(vo);
+	public String deleteForm(Model model, int no) throws Exception {
+		model.addAttribute("vo", service.delete(no));
 		return "redirect:list.do";
 	}
+
 }
