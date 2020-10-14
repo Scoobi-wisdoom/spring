@@ -45,11 +45,10 @@ public class ForumService {
 		}
 	}
 
-	public Integer delete(int no) throws Exception{
-		if(mapper.delete(no) == 0) {
+	public void delete(ForumVO vo) throws Exception{
+		if(mapper.delete(vo) == 0) {
 			throw new Exception("입력한 정보를 확인해주세요.");
 		}
-		return mapper.delete(no);
 	}
 	
 }
